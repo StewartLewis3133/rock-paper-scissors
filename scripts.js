@@ -67,6 +67,7 @@ function playerLose() {
 }
 
 function game() {
+
   //Calls the playRound function 5 times
   for (gameNumber = 1; gameNumber < 6; gameNumber++) {
     playRound();
@@ -77,7 +78,6 @@ function game() {
   //If inequal, test player selection is win or lose
   //return string "You Lose" , "You Win!" "You Tied, play again"
   function playRound() {
-    
     //Calls for Player input
     playerSelect();
     //Calls for Computer input
