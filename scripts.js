@@ -1,17 +1,12 @@
-//Variables that store each player's selections
 let computerSelection;
 let playerSelection;
-
-//Used later to determine which game number the current round is
 let gameNumber;
-
-//Variables that store what each player's score is
 let computerScore = 0;
 let playerScore = 0;
 
 //Random positive integer generator
 //Parameters are minimum and maximum ranges for the random number required
-function getRndInteger(min, max) {
+function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
   }
 
@@ -20,43 +15,41 @@ function getRndInteger(min, max) {
 //Uses getRndInteger to randomly assign the string from the choices array
 function computerPlay() {
     let choices = ["rock", "paper", "scissors"];
-    computerSelection = choices[getRndInteger(0,3)];
+    computerSelection = choices[getRandomInteger(0,3)];
     return;
 }
 
 //Asks the player to choose rock paper or scissors
 //Changes their selection to lower case letters
 //Alerts cancelled if the box is empty or they press cancel
-//Calls itself again if the string is something other than rock paper or scissors
-//Changes variable playerSelection
+//Calls itself if the string is something other than rock paper or scissors
 function playerSelect(){
   playerSelection = prompt("Choose either Rock, Paper, or Scissors!");
   playerSelection = playerSelection.toLowerCase();
   if (playerSelection == "" || playerSelection === null){
-    alert("Cancelled");
-    return;
-  } else if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+    console.log("Cancelled");
+    return playerSelect();
+  } else if (playerSelection == "rock" || playerSelection == "paper" || 
+      playerSelection == "scissors") {
     return;
   } else {
-    playerSelect()
-    return;
+      console.log("Looks like you didn't choose rock, paper, or scissors! Please ");
+    return playerSelect();
   }
 }
 
-//prints that the round is a tie
+//Prints that the round is a tie
 function tieGame() {
   console.log("You and the computer both chose " + playerSelection + "!"); 
 }
-
-//prints that the round goes to the player
-//prints which round it is
+//Prints that the round goes to the player
+//Prints which round it is
 //increments playerScore variable
 function playerWin() {
   console.log("You win! The computer chose " + computerSelection);
   console.log("Game number " + gameNumber + " goes to the player!");
   playerScore++;
 }
-
 //prints that the round goes to the computer
 //prints which round it is
 //increments computerScore variable
@@ -66,17 +59,21 @@ function playerLose() {
   computerScore++;
 }
 
+
+//Main game function
 function game() {
 
   //Calls the playRound function 5 times
   for (gameNumber = 1; gameNumber < 6; gameNumber++) {
     playRound();
   }
-  
-  //Compares the two parameters
+
+  //Tests 4 cases based on player and computer selections
   //If equal, it's a tie and you must play again
-  //If inequal, test player selection is win or lose
+  //If inequal, tests player selection is win or lose
   //return string "You Lose" , "You Win!" "You Tied, play again"
+  //incremement proper score based on win/lose
+  //decrement gameNumber if Tie to achieve 5 game result
   function playRound() {
     //Calls for Player input
     playerSelect();
@@ -132,7 +129,7 @@ game();
 
 //Tests who won based on who had the higher score
 if (playerScore > computerScore){
-  alert("You win!!! Good Job on your luck");
+  console.log("You win!!!");
 } else {
-    alert("The computer has won, I guess humanity really is unimportant");
+    console.log("The computer has won");
   }
