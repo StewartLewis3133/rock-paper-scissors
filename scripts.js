@@ -129,7 +129,7 @@ game();
 
 //Tests who won based on who had the higher score
 if (playerScore > computerScore){
-  console.log("You win!!!");
+  console.log("You won against the Computer!");
 } else {
-    console.log("The computer has won");
+    console.log("The computer has won :((((");
   }
