@@ -19,20 +19,11 @@ function computerPlay() {
     return;
 }
 
-
-const rpsButtons = document.querySelectorAll('.player-button');
-
-function playerSelect(e) {
-  console.log(playerSelection);
-}
-
-
-
 //Asks the player to choose rock paper or scissors
 //Changes their selection to lower case letters
 //Alerts cancelled if the box is empty or they press cancel
 //Calls itself if the string is something other than rock paper or scissors
-/*function playerSelect(){
+function playerSelect(){
   playerSelection = prompt("Choose either Rock, Paper, or Scissors!");
   playerSelection = playerSelection.toLowerCase();
   if (playerSelection == "" || playerSelection === null){
@@ -46,7 +37,6 @@ function playerSelect(e) {
     return playerSelect();
   }
 }
-*/
 
 //Prints that the round is a tie
 function tieGame() {
@@ -77,7 +67,6 @@ function game() {
   for (gameNumber = 1; gameNumber < 6; gameNumber++) {
     playRound();
   }
-}
 
   //Tests 4 cases based on player and computer selections
   //If equal, it's a tie and you must play again
@@ -87,6 +76,7 @@ function game() {
   //decrement gameNumber if Tie to achieve 5 game result
   function playRound() {
     //Calls for Player input
+    playerSelect();
     //Calls for Computer input
     computerPlay();
   
@@ -133,6 +123,9 @@ function game() {
       }
     }
   }
+}
+
+game();
 
 //Tests who won based on who had the higher score
 if (playerScore > computerScore){
