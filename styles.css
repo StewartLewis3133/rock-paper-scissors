@@ -17,6 +17,14 @@ body {
     background-color: #b8b672;
     align-items: center;
     justify-content: center;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 .player-buttons > div {  
@@ -35,24 +43,3 @@ body {
     justify-content: center;
     background-color: #8a8749;
 }
-/*
-
-#computer-info {
-    display: flex;
-    padding: 100px;
-    background-color: #b8b672;
-}
-
-#player-info {
-    display: flex;
-    padding: 100px;
-    background-color: #b8b672;
-}
-
-#user-interface {
-    display: flex;
-    padding: 100px;
-    background-color: #b8b672;
-}
-
-*/
