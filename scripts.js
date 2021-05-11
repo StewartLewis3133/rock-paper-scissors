@@ -25,14 +25,14 @@ function getRandomInteger(min, max) {
 function computerPlay() {
     let choices = ["rock", "paper", "scissors"];
     computerSelection = choices[getRandomInteger(0,3)];
-    return;
+    return computerSelection;
 }
 
 //Main playRound function tests playerSelection against computerSelection
 //Calls computerPlay to get randomized rock paper or scissors
 //Calls either tieGame, playerLose, or playerWin
 function playRound() {
-  computerPlay();
+  computerSelection = computerPlay();
 
   //Tie Case
   if (playerSelection == computerSelection) { //player and computer chose the same thing
@@ -103,7 +103,7 @@ function playerLose() {
   checkWin();
 }
 
-//Used to check gameNumber, if its 5, displays result
+//Used to check gameNumber, if it is 5, displays result
 function checkWin() {
   if (computerScore == 5 || playerScore == 5){//Runs when the score hits 5 and returns winner to console element
     if (playerScore > computerScore) {
@@ -111,7 +111,7 @@ function checkWin() {
       " points";
     } else {
       consoleOut.textContent = "You lost with " + playerScore + 
-      " points. While the computer has " + computerScore;
+      " points while the computer has " + computerScore;
     }
     gameNumber = 0;
     playerScore = 0;
